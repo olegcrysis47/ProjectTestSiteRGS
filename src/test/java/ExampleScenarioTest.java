@@ -103,21 +103,26 @@ public class ExampleScenarioTest {
         //Заполняем поле "Регион"
         String fieldRegionXPath = "//*[@name='Region']";
         WebElement fieldRegion = driver.findElement(By.xpath(fieldRegionXPath));
+        //fieldRegion.click();
         fieldRegion.sendKeys("Москва");
-        /*Не работает
+
+        //Thread.sleep(1000);
+
         //Заполняем поле "Телефон"
         String fieldPhoneXPath = "//input[contains(@data-bind, '+7 (999) 999-99-99')]";
         WebElement fieldPhone = driver.findElement(By.xpath(fieldPhoneXPath));
-        fieldPhone.sendKeys("999 123-44-55");
-*/
+        fieldPhone.click();
+        fieldPhone.sendKeys("9993215577");
+
         //Заполняем поле "Email"
         String fieldEmailXPath = "//*[@name='Email']";
         WebElement fieldEmail = driver.findElement(By.xpath(fieldEmailXPath));
-        fieldEmail.sendKeys("qwertyqwertyqwert");
+        fieldEmail.sendKeys("qwertyqwertyqwertqwertyqwertyqwert");
 
         //Заполняем поле "Предпочитаемая дата контакта*" - заполняется с глюком
         String fieldDateXPath = "//*[@name='ContactDate']";
         WebElement fieldDate = driver.findElement(By.xpath(fieldDateXPath));
+        fieldDate.click();
         fieldDate.sendKeys("15.02.2021\n");
 
         //Заполняем поле "Комментарии"
@@ -130,6 +135,7 @@ public class ExampleScenarioTest {
         WebElement fieldCheck = driver.findElement(By.xpath(fieldCheckXPath));
         fieldCheck.click();
 
+        Thread.sleep(5000);
 
         //Проверяем наличие ошибки при вводе email
         String errorEmailXPath = "//span[contains(text(), 'Введите адрес электронной почты')]";
